@@ -65,7 +65,7 @@ class assign1Tests: XCTestCase {
     func testRight() {
         let game = Twos()
         game.board = int2tile(iboard: [[0,2,2,2],[4,2,4,4],[0,8,2,4],[0,0,4,4]])
-       game.collapse(dir: .right)
+        game.collapse(dir: .right)
         XCTAssertTrue(game.board == int2tile(iboard: [[0,0,2,4],[0,4,2,8],[0,8,2,4],[0,0,0,8]]))
 
     }
