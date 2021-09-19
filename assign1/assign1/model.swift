@@ -63,6 +63,7 @@ class Twos {
             for col in 0..<3 {
                 let curr = board[row][col]
                 let next = board[row][col + 1]
+                var isCombined = false
                 
                 if next.val == curr.val {
                     board[row][col] = Tile(v: next.val + curr.val)
@@ -73,9 +74,10 @@ class Twos {
                     
                     var currIndex = col
                     while currIndex != 0 {
-                        if board[row][currIndex].val == board[row][currIndex - 1].val {
+                        if board[row][currIndex].val == board[row][currIndex - 1].val && !isCombined {
                             board[row][currIndex - 1] = Tile(v: board[row][currIndex].val + board[row][currIndex - 1].val)
                             board[row][currIndex] = Tile(v: 0)
+                            isCombined = true
                         } else if board[row][currIndex - 1].val == 0 {
                             board[row][currIndex - 1] = board[row][currIndex]
                             board[row][currIndex] = Tile(v: 0)
@@ -85,7 +87,6 @@ class Twos {
                     }
                 }
             }
-            
         }
     }
     
