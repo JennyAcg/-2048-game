@@ -48,7 +48,6 @@ public func rotate2D<T>(input: [[T]]) ->[[T]] {
     }
     
     return newBoard
-    
 }
 
 class Twos: ObservableObject {
@@ -127,7 +126,7 @@ class Twos: ObservableObject {
                     var currIndex = col
                     while currIndex != 0 {
                         if board[row][currIndex].val == board[row][currIndex - 1].val && !isCombined {
-                            score += next.val + curr.val
+                            score += board[row][currIndex].val + board[row][currIndex - 1].val
                             board[row][currIndex - 1] = Tile(v: board[row][currIndex].val + board[row][currIndex - 1].val)
                             board[row][currIndex] = Tile(v: 0)
                             isCombined = true
