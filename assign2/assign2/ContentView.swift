@@ -384,7 +384,6 @@ struct ContentView: View {
                                     .cornerRadius(15)
                                     .offset(y:-70)
                             }
-                            
                         }
                     }
                 }
