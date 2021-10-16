@@ -48,28 +48,6 @@ struct TileView: View {
                     .cornerRadius(15)
                     .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
             //}
-            
-//            ZStack {
-//                Rectangle().fill(changeColor(num: tile.val))
-//                Text("\(tile.val)")
-//                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//                    .frame(width: 80, height: 80)
-//            } .offset(x: (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastRow))
-//                .cornerRadius(15)
-//                .frame(width: 80, height: 80)
-            
-//            ZStack {
-//                Rectangle().fill(changeColor(num: tile.val))
-//                    .padding()
-//                    .frame(width: 90, height: 90)
-//                    .cornerRadius(15)
-//                    .offset(x: (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastRow))
-//
-//                Text("\(tile.val)")
-//                    .fixedSize(horizontal: false, vertical: true)
-//                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//                    .offset(x: (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastRow))
-//            }
         } else {
            // ZStack {
                 Text("")
@@ -81,15 +59,6 @@ struct TileView: View {
                     .cornerRadius(15)
                     .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y: CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
            // } .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y: CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
-            
-//            ZStack {
-//                Rectangle().fill(Color.gray)
-//                Text("")
-//                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//                    .frame(width: 80, height: 80)
-//            } .offset(x: (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  (CGFloat(80-3*spacing) / length + spacing) * CGFloat(tile.lastRow))
-//                .cornerRadius(15)
-//                .frame(width: 80, height: 80)
         }
     }
 }

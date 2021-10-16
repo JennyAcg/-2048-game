@@ -17,7 +17,7 @@ struct ScoresView: View {
                     Text("\(s.index))  \(s.score)      \(s.time)")
                 }
             }
-            .navigationTitle("Score List")
+            .navigationTitle("Highest Scores")
         }
     }
 }
