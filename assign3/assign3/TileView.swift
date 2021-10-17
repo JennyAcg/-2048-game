@@ -15,7 +15,7 @@ struct TileView: View {
     init (tile: Tile) {
         self.tile = tile
     }
-
+    
     func changeColor(num: Int) -> Color {
         if num == 2 {
             return Color.red
@@ -38,7 +38,7 @@ struct TileView: View {
     
     var body: some View {
         if tile.val != 0 {
-            //ZStack {
+            ZStack {
                 Text("\(tile.val)")
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
@@ -46,10 +46,9 @@ struct TileView: View {
                     .frame(width: 80, height: 80)
                     .background(Rectangle().fill(changeColor(num: tile.val)).shadow(radius: 3))
                     .cornerRadius(15)
-                    .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y:  CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
-            //}
+            } .offset(x: CGFloat(-120) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol)), y:  CGFloat(-70) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow)))
         } else {
-           // ZStack {
+           ZStack {
                 Text("")
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
@@ -57,8 +56,7 @@ struct TileView: View {
                     .frame(width: 80, height: 80)
                     .background(Rectangle().fill(Color.gray).shadow(radius: 3))
                     .cornerRadius(15)
-                    .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y: CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
-           // } .offset(x: CGFloat(-120) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol), y: CGFloat(-70) + (CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow))
+           } .offset(x: CGFloat(-120) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol)), y: CGFloat(-70) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow)))
         }
     }
 }

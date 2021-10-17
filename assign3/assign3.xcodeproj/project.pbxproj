@@ -14,6 +14,7 @@
 		BA58AD38270CBEAB0032FD43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA58AD37270CBEAB0032FD43 /* Preview Assets.xcassets */; };
 		BA58AD3F270CBFF70032FD43 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA58AD3E270CBFF70032FD43 /* Random.swift */; };
 		BA58AD41270CC01C0032FD43 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA58AD40270CC01C0032FD43 /* model.swift */; };
+		BA609CB6271B91F7009EEE71 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA609CB5271B91F7009EEE71 /* AboutView.swift */; };
 		BAA5D48E27177B49003E4253 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5D48D27177B49003E4253 /* ScoresView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		BA58AD37270CBEAB0032FD43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA58AD3E270CBFF70032FD43 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		BA58AD40270CC01C0032FD43 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		BA609CB5271B91F7009EEE71 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		BAA5D48D27177B49003E4253 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				BA58AD40270CC01C0032FD43 /* model.swift */,
 				BAA5D48D27177B49003E4253 /* ScoresView.swift */,
 				BA156ADE271A584000FCE243 /* TileView.swift */,
+				BA609CB5271B91F7009EEE71 /* AboutView.swift */,
 			);
 			path = assign3;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA58AD33270CBEA90032FD43 /* ContentView.swift in Sources */,
+				BA609CB6271B91F7009EEE71 /* AboutView.swift in Sources */,
 				BA58AD31270CBEA90032FD43 /* assign3App.swift in Sources */,
 				BA58AD3F270CBFF70032FD43 /* Random.swift in Sources */,
 				BAA5D48E27177B49003E4253 /* ScoresView.swift in Sources */,

@@ -234,6 +234,14 @@ class Twos: ObservableObject {
         }
     }
     
+    func printPos() {
+        for row in 0..<4 {
+            for col in 0..<4 {
+                print("value: \(board[row][col].val), row: \(board[row][col].lastRow), col: \(board[row][col].lastCol)")
+            }
+        }
+    }
+    
     func sortScoreList() {
         var temp: Int
         

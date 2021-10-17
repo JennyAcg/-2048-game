@@ -38,7 +38,13 @@ struct BoardView: View {
                     ZStack {
                         ForEach (0..<4) { i in
                             ForEach (0..<4) { j in
-                                TileView(tile: twos.board[i][j]).animation(.spring())
+                                if twos.board[i][j].val != 0 {
+                                    TileView(tile: twos.board[i][j])
+                                        .transition(.slide)
+                                        .animation(.linear)
+                                } else {
+                                    TileView(tile: twos.board[i][j])
+                                }
                             }
                         }
                     }.padding(.bottom, 140)
@@ -56,6 +62,7 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.up) {
                                             twos.spawn()
                                             twos.changePos()
+                                            twos.printPos()
                                         }
                                     }
                                 } else {
@@ -66,6 +73,7 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.right) {
                                             twos.spawn()
                                             twos.changePos()
+                                            twos.printPos()
                                         }
                                     }
                                 }
@@ -81,6 +89,7 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.up) {
                                 twos.spawn()
                                 twos.changePos()
+                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -114,6 +123,7 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.left) {
                                     twos.spawn()
                                     twos.changePos()
+                                    //twos.printPos()
                                 }
                             }).frame(width: 100.0, height: 39.0)
                                 .cornerRadius(15)
@@ -145,6 +155,7 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.right) {
                                     twos.spawn()
                                     twos.changePos()
+                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -178,6 +189,7 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.down) {
                                 twos.spawn()
                                 twos.changePos()
+                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -255,6 +267,7 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.up) {
                                             twos.spawn()
                                             twos.changePos()
+                                            twos.printPos()
                                         }
                                     }
                                 } else {
@@ -265,6 +278,7 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.right) {
                                             twos.spawn()
                                             twos.changePos()
+                                            twos.printPos()
                                         }
                                     }
                                 }
@@ -288,6 +302,7 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.up) {
                                     twos.spawn()
                                     twos.changePos()
+                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -322,6 +337,7 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.left) {
                                     twos.spawn()
                                     twos.changePos()
+                                    //twos.printPos()
                                 }
                             }).frame(width: 100.0, height: 39.0)
                                 .cornerRadius(15)
@@ -353,6 +369,7 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.right) {
                                     twos.spawn()
                                     twos.changePos()
+                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -386,6 +403,7 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.down) {
                                 twos.spawn()
                                 twos.changePos()
+                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -434,6 +452,7 @@ struct BoardView: View {
                         })
                         .frame(width: 300, height: 35)
                         .offset(y:30)
+                        .padding(.bottom, 50)
                     }
                 }
             }.environmentObject(twos)
@@ -453,12 +472,16 @@ struct ContentView: View {
             ScoresView().tabItem {
                 Label("Scores", systemImage: "list.dash")
             }
+            
+            AboutView().tabItem {
+                Label("About", systemImage: "person")
+            }
         } .environmentObject(twos)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(Twos()).previewInterfaceOrientation(.landscapeRight)
+        ContentView().environmentObject(Twos()).previewInterfaceOrientation(.portrait)
     }
 }
