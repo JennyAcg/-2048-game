@@ -10,8 +10,8 @@ import SwiftUI
 struct AboutView: View {
     @State private var isAnimate = false
     @State private var size = 50
-    @State private var xOffset = -100
-    @State private var yOffset = 0
+    @State private var xOffset = -90
+    @State private var yOffset = 100
     @State private var amount = 2
     @State private var color = Color.mint
     
@@ -30,7 +30,7 @@ struct AboutView: View {
             Text("Take a break from the game and watch the circle do some cool animation!")
                 .font(.title)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 200)
+                .padding(.bottom, 150)
             
             Circle()
                 .fill(isAnimate ? color : color)
@@ -38,14 +38,15 @@ struct AboutView: View {
                 .offset(x: CGFloat(xOffset), y: CGFloat(yOffset))
                 .rotationEffect(Angle.degrees(isAnimate ? 360 : -370))
                 .padding(.top, 100)
+                .padding(.bottom, 50)
                 .animation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true))
                 .animation(Animation.linear(duration: 4).repeatForever(autoreverses: true))
                 .onAppear() {
                     self.isAnimate.toggle()
                     self.changeColor()
-                    size = 150
+                    size = 250
                     xOffset = 100
-                    yOffset = 150
+                    yOffset = 250
                 }
         }
     }

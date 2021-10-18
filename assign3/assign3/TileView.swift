@@ -9,8 +9,6 @@ import SwiftUI
 
 struct TileView: View {
     var tile : Tile
-    var length: CGFloat = 20
-    var spacing: CGFloat = 17
     
     init (tile: Tile) {
         self.tile = tile
@@ -37,26 +35,20 @@ struct TileView: View {
     }
     
     var body: some View {
-        if tile.val != 0 {
-            ZStack {
+        ZStack {
+            if tile.val != 0 {
                 Text("\(tile.val)")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .frame(width: 80, height: 80)
                     .background(Rectangle().fill(changeColor(num: tile.val)).shadow(radius: 3))
                     .cornerRadius(15)
-            } .offset(x: CGFloat(-120) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol)), y:  CGFloat(-70) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow)))
-        } else {
-           ZStack {
+            } else {
                 Text("")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .frame(width: 80, height: 80)
                     .background(Rectangle().fill(Color.gray).shadow(radius: 3))
                     .cornerRadius(15)
-           } .offset(x: CGFloat(-120) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastCol)), y: CGFloat(-70) + abs((CGFloat(80*spacing) / length + spacing) * CGFloat(tile.lastRow)))
-        }
+            }
+        } .offset(x: CGFloat(-120) + 85 * CGFloat(tile.lastCol), y: CGFloat(-70) + 85 * CGFloat(tile.lastRow))
     }
 }

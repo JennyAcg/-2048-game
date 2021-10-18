@@ -36,16 +36,10 @@ struct BoardView: View {
                         .padding(.top, 50)
                     
                     ZStack {
-                        ForEach (0..<4) { i in
-                            ForEach (0..<4) { j in
-                                if twos.board[i][j].val != 0 {
-                                    TileView(tile: twos.board[i][j])
-                                        .transition(.slide)
-                                        .animation(.linear)
-                                } else {
-                                    TileView(tile: twos.board[i][j])
-                                }
-                            }
+                        let copyArray = twos.toArray()
+                        
+                        ForEach (0..<16) { i in
+                            TileView(tile: copyArray[i]).animation(.spring())
                         }
                     }.padding(.bottom, 140)
                     .gesture(
@@ -62,7 +56,6 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.up) {
                                             twos.spawn()
                                             twos.changePos()
-                                            twos.printPos()
                                         }
                                     }
                                 } else {
@@ -73,7 +66,6 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.right) {
                                             twos.spawn()
                                             twos.changePos()
-                                            twos.printPos()
                                         }
                                     }
                                 }
@@ -89,7 +81,6 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.up) {
                                 twos.spawn()
                                 twos.changePos()
-                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -104,7 +95,6 @@ struct BoardView: View {
                                         Text("Ok"), action: {
                                             twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                             twos.sortScoreList()
-                                            print(twos.scoreList)
                                             twos.newgame(rand: isRandom)
                                             twos.spawn()
                                             twos.spawn()
@@ -123,7 +113,6 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.left) {
                                     twos.spawn()
                                     twos.changePos()
-                                    //twos.printPos()
                                 }
                             }).frame(width: 100.0, height: 39.0)
                                 .cornerRadius(15)
@@ -137,7 +126,6 @@ struct BoardView: View {
                                             Text("Ok"), action: {
                                                 twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                                 twos.sortScoreList()
-                                                print(twos.scoreList)
                                                 twos.newgame(rand: isRandom)
                                                 twos.spawn()
                                                 twos.spawn()
@@ -155,7 +143,6 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.right) {
                                     twos.spawn()
                                     twos.changePos()
-                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -170,7 +157,6 @@ struct BoardView: View {
                                             Text("Ok"), action: {
                                                 twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                                 twos.sortScoreList()
-                                                print(twos.scoreList)
                                                 twos.newgame(rand: isRandom)
                                                 twos.spawn()
                                                 twos.spawn()
@@ -189,7 +175,6 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.down) {
                                 twos.spawn()
                                 twos.changePos()
-                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -204,7 +189,6 @@ struct BoardView: View {
                                         Text("Ok"), action: {
                                             twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                             twos.sortScoreList()
-                                            print(twos.scoreList)
                                             twos.newgame(rand: isRandom)
                                             twos.spawn()
                                             twos.spawn()
@@ -246,10 +230,10 @@ struct BoardView: View {
             HStack {
                 VStack {
                     ZStack {
-                        ForEach (0..<4) { i in
-                            ForEach (0..<4) { j in
-                                TileView(tile: twos.board[i][j]).animation(.spring())
-                            }
+                        let copyArray = twos.toArray()
+                        
+                        ForEach (0..<16) { i in
+                            TileView(tile: copyArray[i]).animation(.spring())
                         }
                     }.padding(.bottom, 100)
                     .padding(.leading, 180)
@@ -267,7 +251,6 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.up) {
                                             twos.spawn()
                                             twos.changePos()
-                                            twos.printPos()
                                         }
                                     }
                                 } else {
@@ -278,7 +261,6 @@ struct BoardView: View {
                                         if twos.collapse(dir: Direction.right) {
                                             twos.spawn()
                                             twos.changePos()
-                                            twos.printPos()
                                         }
                                     }
                                 }
@@ -302,7 +284,6 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.up) {
                                     twos.spawn()
                                     twos.changePos()
-                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -317,7 +298,6 @@ struct BoardView: View {
                                             Text("Ok"), action: {
                                                 twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                                 twos.sortScoreList()
-                                                print(twos.scoreList)
                                                 twos.newgame(rand: isRandom)
                                                 twos.spawn()
                                                 twos.spawn()
@@ -337,7 +317,6 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.left) {
                                     twos.spawn()
                                     twos.changePos()
-                                    //twos.printPos()
                                 }
                             }).frame(width: 100.0, height: 39.0)
                                 .cornerRadius(15)
@@ -351,7 +330,6 @@ struct BoardView: View {
                                             Text("Ok"), action: {
                                                 twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                                 twos.sortScoreList()
-                                                print(twos.scoreList)
                                                 twos.newgame(rand: isRandom)
                                                 twos.spawn()
                                                 twos.spawn()
@@ -369,7 +347,6 @@ struct BoardView: View {
                                 if twos.collapse(dir: Direction.right) {
                                     twos.spawn()
                                     twos.changePos()
-                                    //twos.printPos()
                                 }
                             })
                                 .frame(width: 100.0, height: 39.0)
@@ -384,7 +361,6 @@ struct BoardView: View {
                                             Text("Ok"), action: {
                                                 twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                                 twos.sortScoreList()
-                                                print(twos.scoreList)
                                                 twos.newgame(rand: isRandom)
                                                 twos.spawn()
                                                 twos.spawn()
@@ -403,7 +379,6 @@ struct BoardView: View {
                             if twos.collapse(dir: Direction.down) {
                                 twos.spawn()
                                 twos.changePos()
-                                //twos.printPos()
                             }
                         })
                             .frame(width: 100.0, height: 39.0)
@@ -418,7 +393,6 @@ struct BoardView: View {
                                         Text("Ok"), action: {
                                             twos.scoreList.append(Score(score: twos.score, time: Date(), index: twos.scoreList.count + 1))
                                             twos.sortScoreList()
-                                            print(twos.scoreList)
                                             twos.newgame(rand: isRandom)
                                             twos.spawn()
                                             twos.spawn()

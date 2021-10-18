@@ -234,12 +234,18 @@ class Twos: ObservableObject {
         }
     }
     
-    func printPos() {
+    func toArray() -> [Tile] {
+        var copyBoard = Array(repeating: Tile(v: 0, num: 0), count: 16)
+        var index = 0
+        
         for row in 0..<4 {
             for col in 0..<4 {
-                print("value: \(board[row][col].val), row: \(board[row][col].lastRow), col: \(board[row][col].lastCol)")
+                copyBoard[index] = board[row][col]
+                index += 1
             }
         }
+        
+        return copyBoard
     }
     
     func sortScoreList() {
